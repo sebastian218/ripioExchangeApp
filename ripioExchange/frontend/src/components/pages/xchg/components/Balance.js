@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
-import {cardDark,textWhite,cardTitle} from '../../../layout/styles';
+import {cardDark,textWhite,cardTitle,divider,subtitle,thHead,td} from '../../../layout/styles';
 export class Balance extends Component {
     render() {
         return (
             
                 <div className="card text-white  mb-1" style={cardDark}>
-                    <h5 className=" text-center" style={cardTitle}>Balance</h5>
-                    
+                    <span className=" text-center" style={cardTitle}>Balance</span>
+                    <div style={divider}></div>
                      <div className="p-2">
-                     <table class="table" style={textWhite}>
+                     <table class="" style={textWhite}>
                             <thead>
                                 <tr>
                                 <th ></th>
-                                <th scope="col">Available</th>
-                                <th scope="col">On Hold</th>
+                                <th style={thHead} scope="col">Available</th>
+                                <th  style={thHead} scope="col">On Hold</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                 <td >BTC</td>
-                                <td>0</td>
-                                <td>0</td>
+                                <td style={td}>0</td>
+                                <td style={td}>0</td>
                                 
                                 </tr>
                                 <tr>
                                 <td >ARS</td>
-                                <td>0</td>
-                                <td>0</td>
+                                <td style={td}>0</td>
+                                <td style={td}>0</td>
                                 </tr>
                             </tbody>
                             </table>

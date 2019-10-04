@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import {cardDark,textWhite,cardTitle} from '../../../layout/styles';
+import {cardDark,textWhite,cardTitle,divider,title,subtitle} from '../../../layout/styles';
 export class OrderBook extends Component {
     render() {
         return (
             <div className="card text-white  mb-1" style={cardDark}>
-            <h5 className=" text-center" style={cardTitle}>Order Book</h5>
+            <span className=" text-center" style={cardTitle}>Order Book</span>
+            <div style={divider}></div>
              <div className="p-1">
                 <div className="header" style={header}>
                     <div style={title}>
@@ -43,16 +44,7 @@ const header = {
     padding: "5px 0",
     fontSize: "14px"
 }
-const title = {
-    display: "flex",
-    flexDirection: "column"
 
-}
-const subtitle = {
-    fontWeight: "700",
-    fontSize: "10px",
-    textAlign: "center"
-}
 const blackbgContainer = {
     minHeight : "240px",
     display: "flex",
