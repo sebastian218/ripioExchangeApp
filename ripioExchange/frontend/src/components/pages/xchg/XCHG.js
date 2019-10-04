@@ -1,8 +1,50 @@
 import React, { Component } from 'react'
 import Balance from './components/Balance';
- 
-const containerBg = {
-        backgroundColor: "black"
+import OrderForm from './components/OrderForm';
+import OrderBook from './components/OrderBook';
+import Chart from './components/Chart';
+import Orders from './components/Orders';
+import TradeHistory from './components/TradeHistory';
+
+const container = {
+        backgroundColor: "#131b1e",
+        paddingTop: "8px",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap",
+        justifyContent: "space-between",
+        height: "90vh!important",
+        marginTop: "0",
+        minHeight: "645px"
+}
+const columnFlex ={
+    flexBasis: "15%",
+    order: "1",
+    marginRight: "5px",
+    marginLeft: "5px",
+    display: "flex",
+    flexDirection: "column"
+}
+const centerColumn = {
+    flexBasis: "55%",
+    order: "3",
+    marginRight: "5px",
+    display: "flex",
+    flexDirection: "column"
+}
+const tradeHistoru = {
+   flexBasis: "15%",
+   order: "4",
+   marginRight: "5px",
+   display: "flex",
+   flexDirection: "column"
+}
+const orderBook = {
+   flexBasis: "15%",
+    order: "2",
+    marginRight: "5px",
+    display: "flex",
+    flexDirection: "column"
 }
 export class XCHG extends Component {
   
@@ -11,22 +53,24 @@ export class XCHG extends Component {
         return (
 
            <React.Fragment>
-              <div  style={containerBg}>
-                 <div className="row">
-                    <div className="col-lg-3 col-sm-12">
+              <div  >
+                 <div style={container}>
+                    <div className="" style={columnFlex}>
                     <Balance />
+                    <OrderForm />
                     </div>
 
-                    <div className="col-lg-2 col-sm-12">
-
+                    <div className=""  style={orderBook}>
+                    <OrderBook />
                     </div>
 
-                    <div className="col-lg-5 col-sm-12">
-
+                    <div className="" style={centerColumn}>
+                    <Chart />
+                    <Orders />
                     </div>
 
-                    <div className="col-lg-2 col-sm-12">
-
+                    <div className="" style={tradeHistoru}>
+                    <TradeHistory />
                     </div>
                  </div>
             
