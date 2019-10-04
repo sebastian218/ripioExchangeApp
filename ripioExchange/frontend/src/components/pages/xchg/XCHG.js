@@ -15,7 +15,8 @@ const container = {
         justifyContent: "space-between",
         height: "90vh!important",
         marginTop: "0",
-        minHeight: "645px"
+        minHeight: "645px",
+        
 }
 const columnFlex ={
     flexBasis: "15%",
@@ -23,7 +24,8 @@ const columnFlex ={
     marginRight: "5px",
     marginLeft: "5px",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    minWidth: "225px"
 }
 const centerColumn = {
     flexBasis: "55%",
@@ -44,7 +46,8 @@ const orderBook = {
     order: "2",
     marginRight: "5px",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    minWidth: "180px"
 }
 export class XCHG extends Component {
   
