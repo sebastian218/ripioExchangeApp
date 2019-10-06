@@ -4,31 +4,43 @@ export class OrderBook extends Component {
     render() {
         return (
             <div className="card text-white  mb-1" style={cardDark}>
-            <span className=" text-center" style={cardTitle}>Order Book</span>
+            <span className=" text-center" style={cardTitle}>OrderBook</span>
             <div style={divider}></div>
              <div className="p-1">
                 <div className="header" style={header}>
                     <div style={title}>
                         <span className="title">Amount</span>
-                        <span style={subtitle} class="subtitle">BTC</span>
+                        <span style={subtitle} className="subtitle">BTC</span>
                     </div>
                     <div style={title}>
                         <span className="title">Total</span>
-                        <span style={subtitle} class="subtitle">ARS</span>
+                        <span style={subtitle} className="subtitle">ARS</span>
                     </div>
                     <div style={title}>
                         <span className="title">Price</span>
-                        <span style={subtitle} class="subtitle">ARS</span>
+                        <span style={subtitle} className="subtitle">ARS</span>
                     </div>
                 </div>
-                <div style={blackbgContainer}>
+                <div  className="sell-orderbook-data" >
 
+                <div className='orderbook-inner-data light-four-color'>
+                   <div>0.00777</div>
+                   <div>12321.09</div>
+                   <div className="red-color">232123.00</div>
+                </div>
+                   
                 </div>
                 <div style={{textAlign:"center"}}>
                 <span className="title">5555.32</span>
-
                 </div>
-                <div style={blackbgContainer}>
+                <div className="buy-orderbook-data" >
+
+                <div className='orderbook-inner-data light-four-color'>
+                   <div>0.00777</div>
+                   <div>12321.09</div>
+                   <div className="green-color">232123.00</div>
+                </div>
+
 
                 </div>
              </div>

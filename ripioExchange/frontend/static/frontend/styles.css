@@ -1,0 +1,74 @@
+html{
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+.red-color {
+    color: #eb5b49;
+}
+.green-color {
+    color: #35ba8e;
+}
+.light-four-color {
+    color: #ccc;
+}
+.bg-red{
+    background-color: #eb5b49!important;
+    
+}
+.bg-green{
+    background-color: #35ba8e!important;
+}
+button{
+    width: 100%;
+}
+/* OrderBook */
+.sell-orderbook-data{
+    min-height: 240px;
+    display: flex;
+    flex-basis: calc(50% - 67px);
+    overflow-y: auto;
+    flex-direction: column-reverse;
+    background-color: #131b1e;
+}
+.buy-orderbook-data{
+    min-height : 240px;
+    display: flex;
+    flex-basis: calc(50% - 67px);
+    overflow-y: auto;
+    flex-direction: column;
+    background-color: #131b1e;
+}
+
+.orderbook-inner-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+}
+.orderbook-data{
+    border-right: 1px solid #131b1e;
+    display: flex;
+    flex-basis: calc(50% - 67px);
+    overflow-y: auto;
+}
+/* Order Form */
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 40px;
+    background-color: #131b1e;
+}
+.side-button{
+    display: flex;
+    flex-basis: 50%;
+}
+.btn{
+    color: #fff !important;
+    text-align: center;
+    border-radius: 40px !important;
+}
+
+

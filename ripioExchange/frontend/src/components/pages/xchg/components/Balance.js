@@ -8,7 +8,7 @@ export class Balance extends Component {
                     <span className=" text-center" style={cardTitle}>Balance</span>
                     <div style={divider}></div>
                      <div className="p-2">
-                     <table class="" style={{color:"#fff",width:"100%"}}>
+                     <table className="" style={{color:"#fff",width:"100%"}}>
                             <thead>
                                 <tr>
                                 <th ></th>

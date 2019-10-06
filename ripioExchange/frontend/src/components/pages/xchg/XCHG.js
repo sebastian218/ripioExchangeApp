@@ -47,7 +47,7 @@ const orderBook = {
     marginRight: "5px",
     display: "flex",
     flexDirection: "column",
-    minWidth: "180px"
+    minWidth: "210px"
 }
 export class XCHG extends Component {
   
