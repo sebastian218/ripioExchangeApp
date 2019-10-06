@@ -1,5 +1,6 @@
 export const cardDark = {
     backgroundColor: "#1a2228",
+    padding: "2px"
 }
 
 export const textWhite ={
@@ -16,6 +17,8 @@ export const divider ={
     opacity: ".2",
     height: "1px",
     marginBottom: "10px",
+    paddingRight: "2px",
+    paddingLeft: "2px"
 }
 export const title = {
     display: "flex",

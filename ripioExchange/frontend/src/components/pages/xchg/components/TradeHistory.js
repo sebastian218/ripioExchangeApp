@@ -6,11 +6,10 @@ export class TradeHistory extends Component {
             <div className="card text-white  mb-1" style={cardDark}>
                     <span className=" text-center" style={cardTitle}>Trade History</span>
                     <div style={divider}></div>
-             <div className="p-2">
-              <h5 className="card-title">Dark card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
+               <div className="p-2">
+             
+               </div>
+            </div>
         )
     }
 }

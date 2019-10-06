@@ -25,7 +25,7 @@ const columnFlex ={
     marginLeft: "5px",
     display: "flex",
     flexDirection: "column",
-    minWidth: "225px"
+    minWidth: "230px"
 }
 const centerColumn = {
     flexBasis: "55%",

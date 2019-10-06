@@ -53,6 +53,9 @@ button{
     flex-basis: calc(50% - 67px);
     overflow-y: auto;
 }
+.btn-round{
+    border-radius: 40px !important;
+}
 /* Order Form */
 .buttons-container{
     display: flex;
@@ -61,6 +64,20 @@ button{
     border-radius: 40px;
     background-color: #131b1e;
 }
+.tab-buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.tab-button{
+    width: 100%;
+    background-color: #131b1e!important;
+    border-radius: 0px;
+}
+.tab-active {
+    border-bottom: 2px solid #eee !important;
+}
 .side-button{
     display: flex;
     flex-basis: 50%;
@@ -68,7 +85,43 @@ button{
 .btn{
     color: #fff !important;
     text-align: center;
-    border-radius: 40px !important;
 }
 
-
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+}
+.label{
+    font-size: 10px;
+    color: #fff;
+    padding-bottom: 5px;
+}
+.input-label{
+    position: absolute;
+    top: -22px;
+}
+.prefix-icon {
+    position: relative;
+}
+.input-field {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin-bottom: 22px;
+    margin-top: 10px;
+}
+.form-input{
+    background-color: rgba(0,0,0,0);
+    color: white;
+    padding-left: 28px;
+    padding-top: 0px;
+    border-radius: 5px;
+}
+.submit-order{
+    border-radius: 20px;
+    padding: 2px;
+    color: #fff;
+    border: none;
+}
