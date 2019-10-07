@@ -5,6 +5,8 @@ import OrderBook from './components/OrderBook';
 import Chart from './components/Chart';
 import Orders from './components/Orders';
 import TradeHistory from './components/TradeHistory';
+import Rates from './components/Rates';
+
 
 const container = {
         backgroundColor: "#131b1e",
@@ -56,7 +58,8 @@ export class XCHG extends Component {
         return (
 
            <React.Fragment>
-              <div  >
+              <div >
+                 <Rates />
                  <div style={container}>
                     <div className="" style={columnFlex}>
                     <Balance />

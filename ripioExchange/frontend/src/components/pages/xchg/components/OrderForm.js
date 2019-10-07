@@ -37,10 +37,28 @@ handleTabs = (type) =>{
         return
     }
 }
+handleChange = (e) => {
+   /*  console.log(e..value)
+    
+    this.setState({
+        [e.target.name]:
+        value }); */
+}
+onChange = e => {
+    const value = e.target.value.replace(/[^0-9.]/g, "");
+    this.setState({
+        [e.target.name]:
+        value });
+}
+
+onSubmit = e => {
+    e.preventDefault();
+    console.log("Form Submit")
+}
 
 
     render() {
-        const {isSellOrder ,isBuyOrder,orderBy } = this.state ;
+        const {isSellOrder ,isBuyOrder,orderBy,price,amount,total } = this.state ;
         return (
             <div className="card text-white  mb-1" style={cardDark}>
                 <span className=" text-center" style={cardTitle}>Order Form</span>
@@ -82,28 +100,28 @@ handleTabs = (type) =>{
                             </div>
 
                             </div>
-                            <form>
+                            <form onSubmit={this.onSubmit}>
                                 <div className="inputs-container">
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">
                                      <div className="label">Price</div>
                                      <img src="../../../static/assets/imgs/solid_fiat.svg" />
                                      </div>
-                                     <input className="form-input" name="price"/>     
+                                     <input className="form-input" pattern="[0-9]*" onInput={this.handleChange} onChange={this.onChange} value={price}  name="price"/>     
                                  </div>
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">
                                      <div className="label">Aumount</div>
                                      <img src="../../../static/assets/imgs/solid_btc.svg" width="20px" />
                                      </div>
-                                     <input className="form-input" name="price"/>     
+                                     <input className="form-input" pattern="[0-9]*" onInput={this.handleChange}  onChange={this.onChange} value={amount} name="amount"/>     
                                  </div>
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">
                                      <div className="label">Total</div>
                                      <img src="../../../static/assets/imgs/solid_fiat.svg"  />
                                      </div>
-                                     <input className="form-input" name="price"/>     
+                                     <input className="form-input" pattern="[0-9]*" onInput={this.handleChange} onChange={this.onChange} value={total}  name="total"/>     
                                  </div>   
                                 </div>
                                   <div>
