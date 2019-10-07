@@ -9,8 +9,8 @@ class Order(models.Model):
     total = models.FloatField()
     opened = models.BooleanField(blank=True)
     closed = models.BooleanField(blank=True)
-    types = models.CharField(max_length=50)
-    user = models.ForeignKey(User,related_name="orders", on_delete= models.CASCADE, null= True)
+    orderType =  models.CharField(max_length=50, null=True)
+    pair = models.CharField(max_length=50,null = True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
