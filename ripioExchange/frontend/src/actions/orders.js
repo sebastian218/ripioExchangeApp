@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_ORDERS, DELETE_ORDER,CREATE_ORDER} from "./types";
+import {GET_ORDERS, DELETE_ORDER,CREATE_ORDER, GET_ERRORS} from "./types";
 
 
 
@@ -16,7 +16,15 @@ export const getOrders = () => dispatch =>{
 
             } )
             .catch(err =>{
-                console.log(err)
+                const error = {
+                    msg: err.response.data,
+                    status: err.response.status
+                }
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: error
+                })
+                
 
             })
 }
@@ -48,7 +56,15 @@ export const createOrder = (order) => dispatch =>{
 
     } )
     .catch(err =>{
-        console.log(err)
+        
+        const error = {
+            msg: err.response.data,
+            status: err.response.status
+        }
+        dispatch({
+            type: GET_ERRORS,
+            payload: error
+        })
 
     })
 }
