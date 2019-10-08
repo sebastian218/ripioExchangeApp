@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import {cardDark,textWhite,cardTitle,divider} from '../../../layout/styles';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import { createOrder } from '../../../../actions/orders';
+
 
 
 
@@ -8,12 +12,28 @@ export class OrderForm extends Component {
     state = {
         isSellOrder : false,
         isBuyOrder : true,
+        showTotal: true,
         orderBy: "limit",
         price : "",
         amount: "",
         total: ""
     } 
 
+ onSubmit = e => {
+    e.preventDefault();
+     const {isSellOrder,price,amount,total} = this.state;
+        const order = {
+             price: price,
+             amount: amount,
+             total: total,
+             status: "opened",
+             orderType: isSellOrder ? "sell" : "buy",
+             pair: "btc/ars"
+        }
+        
+        this.props.createOrder(order);
+        console.log(this.state)
+    }
 onCLick = (type) => {
      switch(type){
         case "buy":
@@ -28,12 +48,12 @@ onCLick = (type) => {
 handleTabs = (type) =>{
     switch(type){
         case "limit":
-        this.setState({orderBy: type})
+        this.setState({orderBy: type,price: ""})
         return
         case"stop":
         return
         case"market":
-        this.setState({orderBy: type})
+        this.setState({orderBy: type,price:"MARKET"})
         return
     }
 }
@@ -45,16 +65,20 @@ handleChange = (e) => {
         value }); */
 }
 onChange = e => {
-    const value = e.target.value.replace(/[^0-9.]/g, "");
-    this.setState({
-        [e.target.name]:
-        value });
+
+    if(e.target.value == "MARKET"){
+        this.setState({
+            [e.target.name]:
+            e.target.value });
+    }else{
+        const value = e.target.value.replace(/[^0-9.]/g, "");
+        this.setState({
+            [e.target.name]:
+            value });
+    }
 }
 
-onSubmit = e => {
-    e.preventDefault();
-    console.log("Form Submit")
-}
+
 
 
     render() {
@@ -107,21 +131,21 @@ onSubmit = e => {
                                      <div className="label">Price</div>
                                      <img src="../../../static/assets/imgs/solid_fiat.svg" />
                                      </div>
-                                     <input className="form-input" pattern="[0-9]*" onInput={this.handleChange} onChange={this.onChange} value={price}  name="price"/>     
+                                     <input className="form-input"  disabled={orderBy == "market"} onInput={this.handleChange} onChange={this.onChange} value={price}  name="price"/>     
                                  </div>
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">
-                                     <div className="label">Aumount</div>
+                                     <div className="label">Amount</div>
                                      <img src="../../../static/assets/imgs/solid_btc.svg" width="20px" />
                                      </div>
-                                     <input className="form-input" pattern="[0-9]*" onInput={this.handleChange}  onChange={this.onChange} value={amount} name="amount"/>     
+                                     <input className="form-input"  onInput={this.handleChange}  onChange={this.onChange} value={amount} name="amount"/>     
                                  </div>
-                                 <div className="input-field prefix-icon">
+                                 <div style={{display: orderBy == "market" ? "none": ""}} className="input-field prefix-icon">
                                      <div className="input-label">
                                      <div className="label">Total</div>
                                      <img src="../../../static/assets/imgs/solid_fiat.svg"  />
                                      </div>
-                                     <input className="form-input" pattern="[0-9]*" onInput={this.handleChange} onChange={this.onChange} value={total}  name="total"/>     
+                                     <input className="form-input"  onInput={this.handleChange} onChange={this.onChange} value={total}  name="total"/>     
                                  </div>   
                                 </div>
                                   <div>
@@ -138,4 +162,4 @@ onSubmit = e => {
     }
 }
 
-export default OrderForm
+export default connect(null,{createOrder})(OrderForm)
