@@ -1,12 +1,28 @@
 import axios from "axios";
-import {GET_ORDERS, DELETE_ORDER,CREATE_ORDER, GET_ERRORS} from "./types";
+import {GET_ORDERS, DELETE_ORDER,CREATE_ORDER, GET_ERRORS, GETALL_ORDERS} from "./types";
+import { createMessage , returnErrors} from './messages';
+import {tokenConfig} from './auth';
 
 
+// GET ALL ORDERS
+export const getAllOrders = () => (dispatch ) =>{
+    axios.get("api/ordersAll")
+         .then(res => {
+             console.log(res)
+             dispatch({
+                 type: GETALL_ORDERS,
+                 payload: res.data
+             })
 
+         } )
+         .catch(err =>{
+             dispatch(returnErrors(err.response.data, err.response.status))
+         })
+}
 // GET ORDERS 
 
-export const getOrders = () => dispatch =>{
-       axios.get("/api/orders")
+export const getOrders = () => (dispatch , getState) =>{
+       axios.get("/api/orders", tokenConfig(getState))
             .then(res => {
                 console.log(res)
                 dispatch({
@@ -16,22 +32,13 @@ export const getOrders = () => dispatch =>{
 
             } )
             .catch(err =>{
-                const error = {
-                    msg: err.response.data,
-                    status: err.response.status
-                }
-                dispatch({
-                    type: GET_ERRORS,
-                    payload: error
-                })
-                
-
+                dispatch(returnErrors(err.response.data, err.response.status))
             })
 }
 // DELETE ORDER
 
-export const deleteOrder = (id) => dispatch => {
-     axios.delete(`/api/orders/${id}/`)
+export const deleteOrder = (id) => (dispatch , getState) => {
+     axios.delete(`/api/orders/${id}/`, tokenConfig(getState))
             .then(res => {
                  dispatch({
                      type: DELETE_ORDER,
@@ -39,14 +46,14 @@ export const deleteOrder = (id) => dispatch => {
                  })
             })
             .catch(err =>{
-                  console.log(err);
+                dispatch(returnErrors(err.response.data, err.response.status))
             })
 }
 
 // ADD LEAD
 
-export const createOrder = (order) => dispatch =>{
-    axios.post("/api/orders/",order)
+export const createOrder = (order) => (dispatch , getState) =>{
+    axios.post("/api/orders/",order,tokenConfig(getState))
     .then(res => {
         console.log(res)
         dispatch({
@@ -56,15 +63,6 @@ export const createOrder = (order) => dispatch =>{
 
     } )
     .catch(err =>{
-        
-        const error = {
-            msg: err.response.data,
-            status: err.response.status
-        }
-        dispatch({
-            type: GET_ERRORS,
-            payload: error
-        })
-
+        dispatch(returnErrors(err.response.data, err.response.status))
     })
 }

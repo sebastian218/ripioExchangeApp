@@ -6,6 +6,7 @@ import Chart from './components/Chart';
 import Orders from './components/Orders';
 import TradeHistory from './components/TradeHistory';
 import Rates from './components/Rates';
+import Header from '../../layout/Header';
 
 
 const container = {
@@ -58,6 +59,7 @@ export class XCHG extends Component {
         return (
 
            <React.Fragment>
+           <Header />
               <div >
                  <Rates />
                  <div style={container}>

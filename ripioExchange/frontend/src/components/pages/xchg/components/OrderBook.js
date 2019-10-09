@@ -1,7 +1,23 @@
 import React, { Component } from 'react'
 import {cardDark,textWhite,cardTitle,divider,title,subtitle} from '../../../layout/styles';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getOrders, deleteOrder, getAllOrders } from '../../../../actions/orders';
+
+
+
 export class OrderBook extends Component {
+
+    static propTypes = {
+        orders : PropTypes.array.isRequired
+   }
+
+   componentDidMount(){
+    this.props.getAllOrders();
+    console.log(this.props.orders)
+}
     render() {
+
         return (
             <div className="card text-white  mb-1" style={cardDark}>
             <span className=" text-center" style={cardTitle}>OrderBook</span>
@@ -66,4 +82,9 @@ const blackbgContainer = {
     backgroundColor: "#131b1e"
 
 }
-export default OrderBook
+
+const mapStateToProps = state =>({
+    orders: state.ordersAll.ordersAll
+})
+
+export default connect(mapStateToProps,{getAllOrders})(OrderBook)
