@@ -13,13 +13,15 @@ export class OrderBook extends Component {
    }
 
    componentDidMount(){
-    this.props.getAllOrders();
-    console.log(this.props.orders)
+       setInterval(() =>{
+        this.props.getAllOrders();
+       },2000)
 }
+   
     render() {
        const {orders} = this.props;
        const sellOrders = orders.filter(order => order.orderType == "sell" && order.status == "opened");
-       const buyOrders = orders.filter(order => order.orderType = "boy" && order.status == "opened");
+       const buyOrders = orders.filter(order => order.orderType == "buy" && order.status == "opened");
 
         return (
             <div className="card text-white  mb-1" style={cardDark}>
@@ -43,7 +45,7 @@ export class OrderBook extends Component {
                 <div  className="sell-orderbook-data" >
                 {
                     sellOrders.map(order => (
-                  <div className='orderbook-inner-data light-four-color'>
+                  <div key={order.id} className='orderbook-inner-data light-four-color'>
                    <div>{order.amount}</div>
                    <div>{order.total}</div>
                    <div className="red-color">{order.price}</div>
@@ -59,7 +61,7 @@ export class OrderBook extends Component {
                 <div className="buy-orderbook-data" >
                 {
                     buyOrders.map(order =>( 
-                   <div className='orderbook-inner-data light-four-color'>
+                   <div key={order.id} className='orderbook-inner-data light-four-color'>
                    <div>{order.amount}</div>
                    <div>{order.total}</div>
                    <div className="green-color">{order.price}</div>

@@ -124,14 +124,14 @@ onChange = e => {
                             </div>
 
                             </div>
-                            <form onSubmit={this.onSubmit}>
+                            <form   onSubmit={this.onSubmit}>
                                 <div className="inputs-container">
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">
                                      <div className="label">Price</div>
                                      <img src="../../../static/assets/imgs/solid_fiat.svg" />
                                      </div>
-                                     <input className="form-input"  disabled={orderBy == "market"} onInput={this.handleChange} onChange={this.onChange} value={price}  name="price"/>     
+                                     <input  className="form-input"  disabled={orderBy == "market"} onInput={this.handleChange} onChange={this.onChange} value={price}  name="price"/>     
                                  </div>
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">

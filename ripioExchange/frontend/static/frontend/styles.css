@@ -180,3 +180,21 @@ div .rates-elements span{
     text-transform: uppercase;
 
 }
+.noAutoComplete{
+    -moz-user-select: none;
+     -webkit-user-select: none;
+      -ms-user-select:none; 
+      user-select:none;
+      -o-user-select:none;
+}
+.containerxchg{
+       background-color: #131b1e;
+       padding-top: 8px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        height: 90vh!important;
+        margin-top: 0;
+        min-height: 645px;
+}

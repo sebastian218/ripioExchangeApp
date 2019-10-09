@@ -28,7 +28,7 @@ export class Header extends Component {
         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {user ? `${user.email}` : ''}
         </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{ left:" -12px",cursor: "pointer"}}>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{ cursor: "pointer"}}>
           <a className="dropdown-item" onClick={this.props.logout} >Logout</a>
         </div>
       </li>

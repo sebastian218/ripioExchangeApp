@@ -79,7 +79,7 @@ export class Login extends Component {
                 
                 <div className="form-group">
                   <button type="submit" className="btn btn-primary">
-                    Register
+                    Login
                   </button>
                 </div>
                 <p>
