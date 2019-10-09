@@ -17,6 +17,9 @@ export class OrderBook extends Component {
     console.log(this.props.orders)
 }
     render() {
+       const {orders} = this.props;
+       const sellOrders = orders.filter(order => order.orderType == "sell" && order.status == "opened");
+       const buyOrders = orders.filter(order => order.orderType = "boy" && order.status == "opened");
 
         return (
             <div className="card text-white  mb-1" style={cardDark}>
@@ -38,24 +41,33 @@ export class OrderBook extends Component {
                     </div>
                 </div>
                 <div  className="sell-orderbook-data" >
-
-                <div className='orderbook-inner-data light-four-color'>
-                   <div>0.00777</div>
-                   <div>12321.09</div>
-                   <div className="red-color">232123.00</div>
+                {
+                    sellOrders.map(order => (
+                  <div className='orderbook-inner-data light-four-color'>
+                   <div>{order.amount}</div>
+                   <div>{order.total}</div>
+                   <div className="red-color">{order.price}</div>
                 </div>
+                    ))
+                }
+                
                    
                 </div>
                 <div style={{textAlign:"center"}}>
                 <span className="title">5555.32</span>
                 </div>
                 <div className="buy-orderbook-data" >
+                {
+                    buyOrders.map(order =>( 
+                   <div className='orderbook-inner-data light-four-color'>
+                   <div>{order.amount}</div>
+                   <div>{order.total}</div>
+                   <div className="green-color">{order.price}</div>
+                  </div>
+                    ))
+                }
 
-                <div className='orderbook-inner-data light-four-color'>
-                   <div>0.00777</div>
-                   <div>12321.09</div>
-                   <div className="green-color">232123.00</div>
-                </div>
+                
 
 
                 </div>

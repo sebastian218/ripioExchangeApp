@@ -9,9 +9,10 @@ const initialState = {
 export default function(state = initialState, action){
     switch(action.type){
         case GETALL_ORDERS:
+        console.log("GET ALL ORDERS")
          return {
              ...state,
-             state: action.payload
+             ordersAll: action.payload
          }
         default:
         return state;
