@@ -18,7 +18,10 @@ export class OrderForm extends Component {
         amount: "",
         total: ""
     } 
-
+componentDidUpdate(){
+   /*  console.log("UPDATED")
+    console.log(this.state.price) */
+}
  onSubmit = e => {
     e.preventDefault();
      const {isSellOrder,price,amount,total} = this.state;
@@ -75,6 +78,20 @@ onChange = e => {
         this.setState({
             [e.target.name]:
             value });
+              
+         if(this.state.amount != "" && this.state.price != ""){
+             var total = (this.state.amount * this.state.price).toFixed(2);
+             if(total != NaN){
+                this.setState({
+                    ["total"] : total
+              })
+             }
+          } else {
+            this.setState({
+                ["total"] : ""
+          })
+          }
+        
     }
 }
 
@@ -124,7 +141,7 @@ onChange = e => {
                             </div>
 
                             </div>
-                            <form   onSubmit={this.onSubmit}>
+                            <form autoComplete="off"  onSubmit={this.onSubmit}>
                                 <div className="inputs-container">
                                  <div className="input-field prefix-icon">
                                      <div className="input-label">
@@ -138,14 +155,14 @@ onChange = e => {
                                      <div className="label">Amount</div>
                                      <img src="../../../static/assets/imgs/solid_btc.svg" width="20px" />
                                      </div>
-                                     <input className="form-input"  onInput={this.handleChange}  onChange={this.onChange} value={amount} name="amount"/>     
+                                     <input  className="form-input"  onInput={this.handleChange}  onChange={this.onChange} value={amount} name="amount"/>     
                                  </div>
                                  <div style={{display: orderBy == "market" ? "none": ""}} className="input-field prefix-icon">
                                      <div className="input-label">
                                      <div className="label">Total</div>
                                      <img src="../../../static/assets/imgs/solid_fiat.svg"  />
                                      </div>
-                                     <input className="form-input"  onInput={this.handleChange} onChange={this.onChange} value={total}  name="total"/>     
+                                     <input disabled  className="form-input"  onInput={this.handleChange} onChange={this.onChange} value={total}  name="total"/>     
                                  </div>   
                                 </div>
                                   <div>

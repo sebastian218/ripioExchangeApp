@@ -15,7 +15,7 @@ export class OrderBook extends Component {
    componentDidMount(){
        setInterval(() =>{
         this.props.getAllOrders();
-       },2000)
+       },10000)
 }
    
     render() {
