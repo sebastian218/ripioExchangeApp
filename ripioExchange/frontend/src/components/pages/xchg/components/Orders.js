@@ -25,21 +25,21 @@ export class Orders extends Component {
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th > 
-                                            <span className="title">Price</span>
-                                            <Icon></Icon>
+                                        <th className=""> 
+                                            <span className="">Price</span>
+                                            <Icon style={icons}>keyboard_arrow_up</Icon>
                                         </th>
-                                        <th >
-                                            <span className="title">Created</span>
-                                            <Icon></Icon>
+                                        <th className="">
+                                            <span className="">Created</span>
+                                            <Icon style={icons}>keyboard_arrow_up</Icon>
                                         </th>
-                                        <th  >
-                                            <span className="title">Status</span>
-                                            <Icon></Icon>
+                                        <th  className="" >
+                                            <span className="">Status</span>
+                                            <Icon style={icons}>keyboard_arrow_up</Icon>
                                         </th>
-                                        <th >
-                                            <span className="title">Field/Amount</span>
-                                            <Icon></Icon>
+                                        <th className="">
+                                            <span className="">Field/Amount</span>
+                                            <Icon style={icons}>keyboard_arrow_up</Icon>
                                         </th>
                                         <th >
 
@@ -66,6 +66,13 @@ export class Orders extends Component {
              </div>
         )
     }
+}
+
+const icons ={
+    top: "7px",
+    paddingLeft: "7px",
+    position: "relative",
+    cursor: "pointer"
 }
 const mapStateToProps = state => ({
     orders: state.orders.orders

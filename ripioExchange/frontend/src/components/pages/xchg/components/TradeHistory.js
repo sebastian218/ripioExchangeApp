@@ -37,7 +37,7 @@ export class TradeHistory extends Component {
                       <tbody>
                           <tr>
                               <td>
-                              <Icon>keyboard_arrow_up</Icon>
+                              <Icon >keyboard_arrow_up</Icon>
                               </td>
                               <td style={{paddingRight:"4px"}}>16:25:44</td>
                               <td>0.00108</td>
@@ -50,5 +50,7 @@ export class TradeHistory extends Component {
         )
     }
 }
+
+
 
 export default TradeHistory

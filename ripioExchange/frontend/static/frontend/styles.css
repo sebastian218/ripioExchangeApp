@@ -198,3 +198,8 @@ div .rates-elements span{
         margin-top: 0;
         min-height: 645px;
 }
+.th-orders{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
